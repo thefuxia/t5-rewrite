@@ -3,7 +3,7 @@
  * Text Domain: plugin_t5_rewrite
  * Domain Path: /languages
  * Plugin Name: T5 Rewrite
- * Description: Adds some rewrite tags.
+ * Description: Adds special rewrite tags.
  * Plugin URI:  https://github.com/toscho/t5-rewrite
  * Version:     2012.11.12
  * Author:      Thomas Scholz
@@ -66,6 +66,11 @@ class T5_Rewrite
 		$this->plugin_path = plugin_dir_path( __FILE__ );
 
 		is_admin() && $this->load_language( 'plugin_t5_rewrite' );
+
+		$fix_codestyling_localization_bug = __(
+			'Adds special rewrite tags.',
+			'plugin_t5_rewrite'
+		);
 
 		$this->load_rewrite_tags();
 		add_action( 'in_admin_header', array ( $this, 'load_help' ) );
