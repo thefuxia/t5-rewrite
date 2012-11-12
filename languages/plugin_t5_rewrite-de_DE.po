@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: T5 Rewrite v2012.11.12\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-11-12 15:35:36+0000\n"
+"PO-Revision-Date: 2012-11-12 15:50:27+0000\n"
 "Last-Translator: toscho <info@toscho.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -112,37 +112,38 @@ msgstr "Eine vereinfachte Version des Autorennamens."
 
 #. translators: plugin header field 'Name'
 #: t5-rewrite.php:0
-#@ t5-rewrite
+#@ plugin_t5_rewrite
 msgid "T5 Rewrite"
 msgstr ""
 
 #. translators: plugin header field 'PluginURI'
 #: t5-rewrite.php:0
-#@ t5-rewrite
+#@ plugin_t5_rewrite
 msgid "https://github.com/toscho/t5-rewrite"
-msgstr ""
-
-#. translators: plugin header field 'Description'
-#: t5-rewrite.php:0
-#@ t5-rewrite
-msgid "Adds some rewrite tags."
 msgstr ""
 
 #. translators: plugin header field 'Author'
 #: t5-rewrite.php:0
-#@ t5-rewrite
+#@ plugin_t5_rewrite
 msgid "Thomas Scholz"
 msgstr ""
 
 #. translators: plugin header field 'AuthorURI'
 #: t5-rewrite.php:0
-#@ t5-rewrite
+#@ plugin_t5_rewrite
 msgid "http://toscho.de"
 msgstr ""
 
 #. translators: plugin header field 'Version'
 #: t5-rewrite.php:0
-#@ t5-rewrite
+#@ plugin_t5_rewrite
 msgid "2012.11.12"
 msgstr ""
+
+#. translators: plugin header field 'Description'
+#: t5-rewrite.php:0
+#: t5-rewrite.php:70
+#@ plugin_t5_rewrite
+msgid "Adds special rewrite tags."
+msgstr "Ergänzt WordPress um spezielle URL-Vorlagen."
 
