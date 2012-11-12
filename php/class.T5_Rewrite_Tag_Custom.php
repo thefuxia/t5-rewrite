@@ -33,7 +33,7 @@ class T5_Rewrite_Tag_Custom extends T5_Rewrite_Tag
 	{
 		$meta = get_post_meta( $post->ID, $this->field, TRUE );
 
-		if ( ! $meta )
+		if ( ! $meta or ! is_scalar( $meta ) )
 			$meta = $this->get_fallback();
 
 		return preg_replace( '~' . $this->regex . '~', $meta, $link );
