@@ -17,6 +17,11 @@ class T5_Rewrite_Tag_Custom extends T5_Rewrite_Tag
 	protected $tag   = '%_custom_%';
 	protected $regex = '%_custom_%\(([^/]+)\)';
 
+	/**
+	 * Post meta key.
+	 *
+	 * @type string
+	 */
 	protected $field = '';
 
 	/**
