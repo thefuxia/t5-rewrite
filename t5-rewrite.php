@@ -47,8 +47,8 @@ class T5_Rewrite
 	 * @wp-hook plugins_loaded
 	 * @return  object of this class
 	 */
-	public static function get_instance() {
-
+	public static function get_instance()
+	{
 		NULL === self::$instance and self::$instance = new self();
 
 		return self::$instance;
@@ -60,8 +60,8 @@ class T5_Rewrite
 	 * @wp-hook plugins_loaded
 	 * @return  void
 	 */
-	public function plugin_setup() {
-
+	public function plugin_setup()
+	{
 		$this->plugin_url  = plugins_url( '/', __FILE__ );
 		$this->plugin_path = plugin_dir_path( __FILE__ );
 
@@ -106,7 +106,8 @@ class T5_Rewrite
 	 * @since   2012.10.23
 	 * @return  void
 	 */
-	public function load_language( $domain ) {
+	public function load_language( $domain )
+	{
 		load_plugin_textdomain(
 			$domain,
 			FALSE,
