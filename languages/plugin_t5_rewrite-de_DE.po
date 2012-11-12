@@ -1,0 +1,148 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: T5 Rewrite v2012.11.12\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2012-11-12 15:35:36+0000\n"
+"Last-Translator: toscho <info@toscho.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: php/class.T5_Rewrite_Tag_Custom.php:65
+#, php-format
+#@ plugin_t5_rewrite
+msgid "A custom field of a post. The syntax is different here: use %1$s, where %2$s is the key. If there is no value for the key %3$s will be used as fallback."
+msgstr "Ein benutzerdefiniertes Feld für den Beitrag. Die Syntax hierfür ist etwas anders als sonst: Benutze %1$s, wobei %2$s der Feldname ist. Gibt es keinen Wert dafür, so wird %3$s stattdessen benutzt."
+
+#: php/class.T5_Rewrite_Tag_Post_Format.php:39
+#@ plugin_t5_rewrite
+msgid "A sanitized version of the post format of the post."
+msgstr "Eine vereinfachte Version des aktuellen Postformats."
+
+#: php/class.T5_Rewrite_Tag_Tag.php:42
+#@ plugin_t5_rewrite
+msgid "A sanitized version of the oldest tag of the post."
+msgstr "Eine vereinfachte Version des ältesten Schlagwortes für den Beitrag."
+
+#: php/class.T5_Rewrite_Tags_Help.php:25
+#@ plugin_t5_rewrite
+msgid "All Rewrite Tags"
+msgstr "Alle Vorlagen"
+
+#: php/class.T5_Rewrite_Tags_Help.php:38
+#@ plugin_t5_rewrite
+msgid "No tags available. Someone has broken this tab."
+msgstr "Keine Vorlagen verfügbar. Ein anderes Plugin hat das hier kaputtgemacht."
+
+#: php/class.T5_Rewrite_Tags_Help.php:70
+#@ plugin_t5_rewrite
+msgid "Tag"
+msgstr "Vorlage"
+
+#: php/class.T5_Rewrite_Tags_Help.php:71
+#@ plugin_t5_rewrite
+msgid "Description"
+msgstr "Beschreibung"
+
+#: php/class.T5_Rewrite_Tags_Help.php:72
+#@ plugin_t5_rewrite
+msgid "Examples"
+msgstr "Beispiele"
+
+#: php/class.T5_Rewrite_Tags_Help.php:84
+#@ plugin_t5_rewrite
+msgid "The year of the post in four digits."
+msgstr "Das Jahr des Beitrages in vier Ziffern."
+
+#: php/class.T5_Rewrite_Tags_Help.php:92
+#@ plugin_t5_rewrite
+msgid "Month of the year in two digits."
+msgstr "Monat des Jahres in zwei Ziffern."
+
+#: php/class.T5_Rewrite_Tags_Help.php:100
+#@ plugin_t5_rewrite
+msgid "The day of the month in two digits."
+msgstr "Tag des Monats in zwei Ziffern."
+
+#: php/class.T5_Rewrite_Tags_Help.php:108
+#@ plugin_t5_rewrite
+msgid "The hour of the day in two digits."
+msgstr "Stunde des Tages in zwei Ziffern."
+
+#: php/class.T5_Rewrite_Tags_Help.php:116
+#@ plugin_t5_rewrite
+msgid "The minute of the hour in two digits."
+msgstr "Minute der Stunde in zwei Ziffern."
+
+#: php/class.T5_Rewrite_Tags_Help.php:124
+#@ plugin_t5_rewrite
+msgid "The second of the minute in two digits."
+msgstr "Sekunde der Minute in zwei Ziffern."
+
+#: php/class.T5_Rewrite_Tags_Help.php:132
+#@ plugin_t5_rewrite
+msgid "The unique ID # of the post. A number."
+msgstr "Die spezifische Kennzahl des Beitrages. Eine Zahl."
+
+#: php/class.T5_Rewrite_Tags_Help.php:140
+#@ plugin_t5_rewrite
+msgid "A sanitized version of the title of the post (post slug field on Edit Post/Page panel)."
+msgstr "Eine vereinfachte Version des Beitragstitels (der Slug in der Bearbeitungsmaske)."
+
+#: php/class.T5_Rewrite_Tags_Help.php:148
+#@ plugin_t5_rewrite
+msgid "A sanitized version of the category name (category slug field on New/Edit Category panel). Nested sub-categories appear as nested directories in the URI."
+msgstr "Eine vereinfachte Version des Kategorienamens (Kategorieslug). Verschachtelte Subkategorien werden als Unterverzeichnisse in der URL abgebildet."
+
+#: php/class.T5_Rewrite_Tags_Help.php:156
+#@ plugin_t5_rewrite
+msgid "A sanitized version of the author name."
+msgstr "Eine vereinfachte Version des Autorennamens."
+
+#. translators: plugin header field 'Name'
+#: t5-rewrite.php:0
+#@ t5-rewrite
+msgid "T5 Rewrite"
+msgstr ""
+
+#. translators: plugin header field 'PluginURI'
+#: t5-rewrite.php:0
+#@ t5-rewrite
+msgid "https://github.com/toscho/t5-rewrite"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: t5-rewrite.php:0
+#@ t5-rewrite
+msgid "Adds some rewrite tags."
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: t5-rewrite.php:0
+#@ t5-rewrite
+msgid "Thomas Scholz"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: t5-rewrite.php:0
+#@ t5-rewrite
+msgid "http://toscho.de"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: t5-rewrite.php:0
+#@ t5-rewrite
+msgid "2012.11.12"
+msgstr ""
+
