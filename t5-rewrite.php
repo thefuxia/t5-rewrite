@@ -77,6 +77,8 @@ class T5_Rewrite
 		$this->load_class( 'T5_Rewrite_Tag_Post_Format' );
 		$this->load_class( 'T5_Rewrite_Tag_Tag' );
 		$this->load_class( 'T5_Rewrite_Tag_Custom' );
+
+		do_action( 't5_rewrite_base_classes_loaded' );
 	}
 
 	public function load_help()
