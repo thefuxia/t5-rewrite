@@ -12,4 +12,4 @@ Currently, this WordPress plugin creates three new rewrite tags:
 There is a new help tab too, listing all available rewrite tags, including the
 built-in tags. 
 
-![Screen shot](screenshots/help-and-custom-field-tag.png)
+![Screen shot](https://raw.github.com/toscho/t5-rewrite/master/screenshots/help-and-custom-field-tag.png)
