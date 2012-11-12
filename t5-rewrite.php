@@ -1,5 +1,7 @@
 <?php
 /**
+ * Text Domain: plugin_t5_rewrite
+ * Domain Path: /languages
  * Plugin Name: T5 Rewrite
  * Description: Adds some rewrite tags.
  * Plugin URI:  https://github.com/toscho/t5-rewrite
@@ -8,8 +10,6 @@
  * Author URI:  http://toscho.de
  * Licence:     MIT
  * License URI: http://opensource.org/licenses/MIT
- * Text Domain: plugin_t5_rewrite
- * Domain Path: /languages
  */
 
 add_action(
@@ -110,7 +110,7 @@ class T5_Rewrite
 		load_plugin_textdomain(
 			$domain,
 			FALSE,
-			$this->plugin_path . '/languages'
+			plugin_basename( dirname( __FILE__ ) ) . '/languages'
 		);
 	}
 }
