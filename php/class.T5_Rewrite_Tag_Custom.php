@@ -34,7 +34,7 @@ class T5_Rewrite_Tag_Custom extends T5_Rewrite_Tag
 		$meta = get_post_meta( $post->ID, $this->field, TRUE );
 
 		if ( ! $meta )
-			$meta = apply_filters( 't5_rewrite_custom_field_fallback', 'unknown' );
+			$meta = $this->get_fallback();
 
 		return preg_replace( '~' . $this->regex . '~', $meta, $link );
 	}
@@ -70,7 +70,21 @@ class T5_Rewrite_Tag_Custom extends T5_Rewrite_Tag
 			$text,
 			'<code>%_custom_%(fieldname)</code>',
 			'<code>(fieldname)</code>',
-			apply_filters( 't5_rewrite_custom_field_fallback', 'custom' )
+			'<code>' . $this->get_fallback() . '</code>'
+		);
+	}
+
+	/**
+	 * Default string when the custom meta is not found.
+	 *
+	 * @return string
+	 */
+	protected function get_fallback()
+	{
+		return apply_filters(
+			't5_rewrite_custom_field_fallback',
+			'custom',
+			$this->field
 		);
 	}
 
