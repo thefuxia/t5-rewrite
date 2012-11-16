@@ -5,12 +5,23 @@
  * Plugin Name: T5 Rewrite
  * Description: Adds special rewrite tags.
  * Plugin URI:  https://github.com/toscho/t5-rewrite
- * Version:     2012.11.12
+ * Version:     2012.11.16
  * Author:      Thomas Scholz
  * Author URI:  http://toscho.de
  * Licence:     MIT
  * License URI: http://opensource.org/licenses/MIT
  */
+
+/**
+ * Changelog
+ *
+ * 2012.11.16
+ * - Made post tags sortable and assign the first used tag for %tag%.
+ *
+ * 2012.11.12
+ * - First version.
+ */
+
 
 add_action(
 	'plugins_loaded',
