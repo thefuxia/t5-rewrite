@@ -4,7 +4,7 @@
  *
  * @package    T5 Rewrite
  * @subpackage Rewrite Tags
- * @version    2012.11.12
+ * @version    2012.11.16
  * @since      2012.11.12
  */
 
@@ -13,7 +13,11 @@
  */
 class T5_Rewrite_Tags_Help
 {
-
+	/**
+	 * Constructor.
+	 *
+	 * @wp-hook in_admin_header
+	 */
 	public function __construct()
 	{
 		if ( 'options-permalink' !== get_current_screen()->base )
@@ -28,13 +32,21 @@ class T5_Rewrite_Tags_Help
 		);
 	}
 
+	/**
+	 * Print rewrite tag help content.
+	 *
+	 * Called in wp-admin/admin-header.php after 'in_admin_header' and before
+	 * 'admin_notices'.
+	 *
+	 * @return void
+	 */
 	function render()
 	{
 		$tags = $this->get_tag_list();
 
 		if ( empty ( $tags ) )
 		{
-			return print __(
+			return _e(
 				'No tags available. Someone has broken this tab.',
 				'plugin_t5_rewrite'
 			);
@@ -49,24 +61,39 @@ class T5_Rewrite_Tags_Help
 		print '</table>';
 	}
 
+	/**
+	 * A single row in the help table.
+	 *
+	 * @param  array $tag
+	 * @return string
+	 */
 	protected function get_tag_row( array $tag )
 	{
 		return sprintf(
-			'<tr><td style="white-space:nowrap" class="code"> %3$s %2$s %1$s %4$s %2$s %1$s %5$s %2$s</tr>',
-			'<td>',
-			'</td>',
+			'<tr>
+				<td style="white-space:nowrap" class="code">%1$s</td>
+				<td>%2$s</td>
+				<td>%3$s</td>
+			</tr>',
 			'%' . $tag['tag'] . '%',
 			$tag['description'],
 			$tag['examples']
 		);
 	}
 
+	/**
+	 * <thead> and <tfoot>
+	 *
+	 * @return string
+	 */
 	protected function get_table_header()
 	{
 		$row = sprintf(
-			'<tr>%1$s %3$s %2$s %1$s %4$s %2$s %1$s %5$s %2$s</tr>',
-			'<th scope="col">',
-			'</th>',
+			'<tr>
+				<th scope="col">%1$s</th>
+				<th scope="col">%2$s</th>
+				<th scope="col">%3$s</th>
+			</tr>',
 			__( 'Tag',         'plugin_t5_rewrite' ),
 			__( 'Description', 'plugin_t5_rewrite' ),
 			__( 'Examples',    'plugin_t5_rewrite' )
@@ -75,6 +102,11 @@ class T5_Rewrite_Tags_Help
 		return sprintf( '<thead>%1$s</thead><tfoot>%1$s</tfoot>', $row );
 	}
 
+	/**
+	 * Array of available tags.
+	 *
+	 * @return array
+	 */
 	protected function get_tag_list()
 	{
 		$tags = array (
