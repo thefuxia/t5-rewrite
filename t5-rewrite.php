@@ -110,9 +110,7 @@ class T5_Rewrite
 		if ( ! empty ( $sub_classes ) )
 		{
 			foreach ( $sub_classes as $sub_class )
-			{
 				$this->load_class( "{$base_class}_{$sub_class}" );
-			}
 		}
 
 		do_action( 't5_rewrite_base_classes_loaded' );
