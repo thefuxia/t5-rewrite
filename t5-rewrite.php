@@ -5,7 +5,7 @@
  * Plugin Name: T5 Rewrite
  * Description: Adds special rewrite tags.
  * Plugin URI:  https://github.com/toscho/t5-rewrite
- * Version:     2012.11.16
+ * Version:     2012.11.20
  * Author:      Thomas Scholz
  * Author URI:  http://toscho.de
  * Licence:     MIT
