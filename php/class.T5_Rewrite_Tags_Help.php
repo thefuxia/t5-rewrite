@@ -20,7 +20,7 @@ class T5_Rewrite_Tags_Help
 	 */
 	public function __construct()
 	{
-		if ( 'options-permalink' !== get_current_screen()->base )
+		if ( ! $this->is_help_screen() )
 			return;
 
 		get_current_screen()->add_help_tab(
@@ -30,6 +30,21 @@ class T5_Rewrite_Tags_Help
 				'callback' => array ( $this, 'render' )
 			)
 		);
+	}
+
+	/**
+	 * Check if we are on the permalink settings page.
+	 *
+	 * Can be filtered.
+	 *
+	 * @return boolean
+	 */
+	protected function is_help_screen()
+	{
+		$return = 'options-permalink' === get_current_screen()->base;
+		$return = apply_filters( 't5_rewrite_help', $return );
+
+		return $return;
 	}
 
 	/**
