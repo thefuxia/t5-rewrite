@@ -42,7 +42,7 @@ class T5_Rewrite_Tags_Help
 	protected function is_help_screen()
 	{
 		$return = 'options-permalink' === get_current_screen()->base;
-		$return = apply_filters( 't5_rewrite_help', $return );
+		$return = apply_filters( 't5_rewrite_show_help_screen', $return );
 
 		return $return;
 	}
