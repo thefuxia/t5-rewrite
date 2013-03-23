@@ -76,7 +76,11 @@ class T5_Rewrite
 		$this->plugin_url  = plugins_url( '/', __FILE__ );
 		$this->plugin_path = plugin_dir_path( __FILE__ );
 
-		is_admin() && $this->load_language( 'plugin_t5_rewrite' );
+		if ( is_admin() )
+		{
+			$this->load_language( 'plugin_t5_rewrite' );
+			$this->load_class( 'T5_Permalink_Preview' );
+		}
 
 		$fix_codestyling_localization_bug = __(
 			'Adds special rewrite tags.',
