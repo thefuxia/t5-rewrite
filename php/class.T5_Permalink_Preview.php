@@ -1,12 +1,22 @@
 <?php  # -*- coding: utf-8 -*-
+/**
+ * Permalink preview.
+ *
+ * @package    T5 Rewrite
+ * @subpackage Tools
+ * @version    2013.03.23
+ * @since      2013.03.23
+ */
 class T5_Permalink_Preview
 {
-	protected $action = 'permalink_preview';
-
+	/**
+	 * Constructor.
+	 *
+	 * @wp-hook plugins_loaded
+	 */
 	public function __construct()
 	{
-		$callback = array ( $this, 'fetch_preview' );
-		add_action( 'wp_ajax_' . $this->action,        $callback );
+		add_action( 'wp_ajax_permalink_preview', array ( $this, 'fetch_preview' ) );
 		add_action(
 			'admin_footer-options-permalink.php',
 			array ( $this, 'print_footer_script' )
@@ -16,10 +26,10 @@ class T5_Permalink_Preview
 
 		/* We have to do it here already, because when the AJAX callback fires,
 		 * the global $wp_rewrite has the trailing slash already set, and
-		* get_permalink() fetches 'permalink_structure', but it is asking
-		* $wp_rewrite for the slash.
-		* This is stupid, I hate it, and it sucks. Just saying.
-		*/
+		 * get_permalink() fetches 'permalink_structure', but it is asking
+		 * $wp_rewrite for the slash.
+		 * This is stupid, I hate it, and it sucks. Just saying.
+		 */
 		if ( ! empty ( $_POST['struct'] ) && defined( 'DOING_AJAX' ) && DOING_AJAX )
 		{
 			add_filter(
