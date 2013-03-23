@@ -128,7 +128,7 @@ class T5_Rewrite_Tags_Help
 			array (
 				'tag'         => 'year',
 				'description' => __(
-					'The year of the post in four digits.',
+					'The year of the post date in four digits.',
 					'plugin_t5_rewrite'
 					),
 				'examples'    => '2004, 2020'
@@ -136,7 +136,7 @@ class T5_Rewrite_Tags_Help
 			array (
 				'tag'         => 'monthnum',
 				'description' => __(
-					'Month of the year in two digits.',
+					'Month of the post date in two digits.',
 					'plugin_t5_rewrite'
 					),
 				'examples'    => '01, 12'
@@ -144,7 +144,7 @@ class T5_Rewrite_Tags_Help
 			array (
 				'tag'         => 'day',
 				'description' => __(
-					'The day of the month in two digits.',
+					'The day of the post date in two digits.',
 					'plugin_t5_rewrite'
 					),
 				'examples'    => '07, 31'
@@ -152,7 +152,7 @@ class T5_Rewrite_Tags_Help
 			array (
 				'tag'         => 'hour',
 				'description' => __(
-					'The hour of the day in two digits.',
+					'The hour of the post date in two digits.',
 					'plugin_t5_rewrite'
 					),
 				'examples'    => '04, 23'
@@ -160,7 +160,7 @@ class T5_Rewrite_Tags_Help
 			array (
 				'tag'         => 'minute',
 				'description' => __(
-					'The minute of the hour in two digits.',
+					'The minute of the post date in two digits.',
 					'plugin_t5_rewrite'
 					),
 				'examples'    => '04, 59'
@@ -168,7 +168,7 @@ class T5_Rewrite_Tags_Help
 			array (
 				'tag'         => 'second',
 				'description' => __(
-					'The second of the minute in two digits.',
+					'The second of the post date in two digits.',
 					'plugin_t5_rewrite'
 					),
 				'examples'    => '05, 58'
@@ -176,7 +176,7 @@ class T5_Rewrite_Tags_Help
 			array (
 				'tag'         => 'post_id',
 				'description' => __(
-					'The unique ID # of the post. A number.',
+					'The unique ID number of the post.',
 					'plugin_t5_rewrite'
 					),
 				'examples'    => '1485, 200058'
