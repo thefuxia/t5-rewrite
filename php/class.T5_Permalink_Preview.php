@@ -72,7 +72,7 @@ class T5_Permalink_Preview
 	 * @wp-hook pre_option_permalink_structure
 	 * @return  string
 	 */
-	function current_struct()
+	public function current_struct()
 	{
 		return esc_html( $_POST['struct'] );
 	}
