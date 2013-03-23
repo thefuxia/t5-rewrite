@@ -4,7 +4,7 @@
  *
  * @package    T5 Rewrite
  * @subpackage Rewrite Tags
- * @version    2012.11.20
+ * @version    2013.03.23
  * @since      2012.11.12
  */
 
