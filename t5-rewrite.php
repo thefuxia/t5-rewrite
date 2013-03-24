@@ -67,7 +67,7 @@ class T5_Rewrite
 
 		if ( is_admin() )
 		{
-			$this->load_language( 'plugin_t5_rewrite' );
+			$this->load_language();
 			$this->load_class( 'T5_Permalink_Preview' );
 		}
 
@@ -146,9 +146,9 @@ class T5_Rewrite
 	 * @param   string $domain
 	 * @return  void
 	 */
-	public function load_language( $domain )
+	public function load_language()
 	{
 		$path = plugin_basename( dirname( __FILE__ ) ) . '/languages';
-		load_plugin_textdomain( $domain, FALSE, $path );
+		load_plugin_textdomain( 'plugin_t5_rewrite', FALSE, $path );
 	}
 }
