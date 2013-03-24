@@ -143,7 +143,6 @@ class T5_Rewrite
 	 * front-end for example).
 	 *
 	 * @wp-hook wp_loaded
-	 * @param   string $domain
 	 * @return  void
 	 */
 	public function load_language()
