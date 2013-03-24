@@ -2,9 +2,12 @@
 /**
  * Permalink preview.
  *
+ * Shows how the new rules work when applied to the latest post.
+ * Not exactly an MVC pattern. :)
+ *
  * @package    T5 Rewrite
  * @subpackage Tools
- * @version    2013.03.23
+ * @version    2013.03.24
  * @since      2013.03.23
  */
 class T5_Permalink_Preview
@@ -12,17 +15,18 @@ class T5_Permalink_Preview
 	/**
 	 * Constructor.
 	 *
-	 * @wp-hook plugins_loaded
+	 * @wp-hook plugins_loaded && is_admin()
 	 */
 	public function __construct()
 	{
 		add_action( 'wp_ajax_permalink_preview', array ( $this, 'fetch_preview' ) );
-		add_action(
-			'admin_footer-options-permalink.php',
-			array ( $this, 'print_footer_script' )
-		);
-		// admin_print_scripts-options-permalink.php
-		// admin_print_footer_scripts
+
+		if ( isset ( $GLOBALS['pagenow'] )
+			&& 'options-permalink.php' === $GLOBALS['pagenow']
+		)
+		{
+			add_action( 'admin_enqueue_scripts', array ( $this, 'load_js' ) );
+		}
 
 		/* We have to do it here already, because when the AJAX callback fires,
 		 * the global $wp_rewrite has the trailing slash already set, and
@@ -74,71 +78,68 @@ class T5_Permalink_Preview
 	 */
 	public function current_struct()
 	{
+		if ( '_' === $_POST['struct'] )
+			return "";
+
 		return esc_html( $_POST['struct'] );
 	}
 
 	/**
-	 * Print preview script.
+	 * Enqueue JavaScript and set localzed parameters.
 	 *
-	 * @wp-hook admin_footer-options-permalink.php
+	 * @wp-hook admin_enqueue_scripts
 	 * @return  void
 	 */
-	public function print_footer_script()
+	public function load_js()
 	{
-		?>
-	<script>
-	jQuery( function( $ ) {
+		$handle   = 't5_permalink_preview';
 
-		var previewText = {
-			'preview':   '<?php
-				_ex( 'Preview', 'permalink preview', 'plugin_t5_rewrite' );
-			?>',
-			'noPreview': '<?php
-				_ex( 'No preview available.',
-					'permalink preview',
-					'plugin_t5_rewrite'
-					);
-			?>'
-		};
+		wp_register_script(
+			$handle,
+			$this->get_js_url(),
+			array ( 'jquery' ),
+			NULL,
+			TRUE
+		);
+		wp_enqueue_script( $handle );
+		wp_localize_script( $handle, 't5PermalinkPreview', $this->get_js_vars() );
+	}
 
-		$( 'form[action="options-permalink.php"] table:first' )
-			.append( '<tr><th>' + previewText.preview + '</th><td id="t5preview" class="code"></td></tr>' );
+	/**
+	 * URL to preview JavaScript.
+	 *
+	 * @wp-hook admin_enqueue_scripts
+	 * @return string
+	 */
+	protected function get_js_url()
+	{
+		/* Prepend with a / to test minified script in debug mode.
+		$min      = defined( 'WP_DEBUG') && WP_DEBUG ? '' : '.min';
+		/*/
+		$min      = defined( 'WP_DEBUG') && WP_DEBUG ? '.min' : '';
+		/**/
+		return plugins_url( "js/preview$min.js", dirname( __FILE__ ) );
+	}
 
-		var previewCell = $( '#t5preview' ),
-		    tagInput    = $( '#permalink_structure' ),
-		    $stored     = [];
-
-		var handleResult = function( response ) {
-			$( previewCell ).html( response )
-				.animate( { opacity: 0.25 }, 500, "linear", function() {
-					$(this).animate( { opacity: 1 }, 500 );
-				});
-			$stored[ $val ] = response;
-		},
-		updatePreview = function() {
-			$val = $.trim( $( tagInput ).val() );
-
-			if ( $stored[ $val ] ) {
-				$( previewCell ).html( $stored[ $val ] );
-				return;
-			}
-
-			if ( '' == $val ) {
-				$( previewCell ).html( '<i>' + previewText.noPreview + '</i>' );
-				return;
-			}
-
-		    var postParams = {
-		        action: 'permalink_preview',
-		        struct: $val
-		    };
-
-			$.post( ajaxurl, postParams, handleResult );
-		};
-		$( tagInput ).on( 'change paste keyup mouseleave', updatePreview );
-		$( window ).on( 'load', updatePreview );
-	});
-	</script>
-	<?php
-		}
+	/**
+	 * Localized JavaScript parameters.
+	 *
+	 * @wp-hook admin_enqueue_scripts
+	 * @return  array
+	 */
+	protected function get_js_vars()
+	{
+		return array (
+			'label' => _x(
+				'Preview',
+				'permalink preview',
+				'plugin_t5_rewrite'
+			),
+			'error' => _x(
+				'No preview available.',
+				'permalink preview',
+				'plugin_t5_rewrite'
+			)
+		);
+	}
 }
