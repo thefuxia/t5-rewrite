@@ -52,7 +52,7 @@ class T5_Permalink_Preview
 	public function fetch_preview()
 	{
 		$args  = array (
-			'numberposts'         => 1,
+			'numberposts'         => 3,
 			'ignore_sticky_posts' => TRUE,
 			'post_status'         => 'publish',
 			// If not specified, attachments are searched too.
@@ -63,11 +63,28 @@ class T5_Permalink_Preview
 		$posts = get_posts( $args );
 
 		if ( ! empty ( $posts ) && is_array( $posts ) )
-			print get_permalink( $posts[0]->ID );
+			$this->print_preview_urls( $posts );
 		else
 			_e( 'No post for preview found.', 'plugin_t5_rewrite' );
 
 		exit;
+	}
+
+	/**
+	 * Format and print the permalinks for preview.
+	 *
+	 * @wp-hook wp_ajax_permalink_preview
+	 * @param   array $posts
+	 * @return  void
+	 */
+	protected function print_preview_urls( Array $posts )
+	{
+		$urls = array();
+
+		foreach ( $posts as $post )
+			$urls[] = get_permalink( $post->ID );
+
+		print join( '<br />', $urls );
 	}
 
 	/**
