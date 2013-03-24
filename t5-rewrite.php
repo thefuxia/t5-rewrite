@@ -12,17 +12,6 @@
  * License URI: http://opensource.org/licenses/MIT
  */
 
-/**
- * Changelog
- *
- * 2012.11.16
- * - Made post tags sortable and assign the first used tag for %tag%.
- *
- * 2012.11.12
- * - First version.
- */
-
-
 add_action(
 	'plugins_loaded',
 	array ( T5_Rewrite::get_instance(), 'plugin_setup' )
