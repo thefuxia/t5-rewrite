@@ -139,10 +139,7 @@ class T5_Rewrite
 	/**
 	 * Loads translation file.
 	 *
-	 * Accessible to other classes to load different language files (admin and
-	 * front-end for example).
-	 *
-	 * @wp-hook wp_loaded
+	 * @wp-hook plugins_loaded
 	 * @return  void
 	 */
 	public function load_language()
