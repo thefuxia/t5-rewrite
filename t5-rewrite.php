@@ -1,13 +1,13 @@
 <?php
 /**
- * Text Domain: plugin_t5_rewrite
- * Domain Path: /languages
  * Plugin Name: T5 Rewrite
  * Description: Adds special rewrite tags.
  * Plugin URI:  https://github.com/toscho/t5-rewrite
- * Version:     2012.11.20
+ * Version:     2013.03.24
  * Author:      Thomas Scholz
  * Author URI:  http://toscho.de
+ * Text Domain: plugin_t5_rewrite
+ * Domain Path: /languages
  * Licence:     MIT
  * License URI: http://opensource.org/licenses/MIT
  */
