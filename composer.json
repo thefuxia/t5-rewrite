@@ -1,0 +1,22 @@
+{
+  "name":         "toscho/t5-rewrite",
+  "description":  "Debug the WordPress rewrite setup",
+  "license":      "MIT",
+  "homepage":     "https://github.com/toscho/t5-rewrite",
+  "keywords":     [ "wordpress", "rewrite", "debug" ],
+  "type":         "wordpress-plugin",
+  "authors":      [ {
+      "name": "Thomas Scholz",
+      "homepage": "http://toscho.de/",
+      "role": "Lead Developer"
+  } ],
+  "support"     : {
+    "issues" : "https://github.com/toscho/t5-rewrite/issues"
+  },
+  "config":       {
+    "bin-dir":    "bin"
+  },
+  "require":      {
+    "php" : ">=5.3"
+  }
+}
