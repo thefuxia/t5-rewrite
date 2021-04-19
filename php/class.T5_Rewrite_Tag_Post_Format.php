@@ -45,6 +45,6 @@ class T5_Rewrite_Tag_Post_Format extends T5_Rewrite_Tag
 	 */
 	protected function get_examples()
 	{
-		return join( array_keys( get_post_format_strings() ), ', ' );
+		return join( ', ', array_keys( get_post_format_strings() ) );
 	}
 }
